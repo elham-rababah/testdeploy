@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { Router, Route, hashHistory,browserHistory} from 'react-router'
+import { Router, Route, hashHistory, browserHistory} from 'react-router'
 
 import Layout from "./components/Layout";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 
 const app = document.getElementById('app');
 ReactDOM.render((
-	<Router history={browserHistory}>
+	<Router history={hashHistory}>
     <Route path="/" component={Layout}/>
-    {/* add the routes here */}
-    <Route path="/signin" component={Footer}/>
-    <Route path="/signup" component={Header}/>
+    <Route path="/signin" component={SignIn}/>
+    <Route path="/signup" component={SignUp}/>
   </Router>
-), app);
+  ), app);
