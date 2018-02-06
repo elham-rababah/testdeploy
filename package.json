@@ -6,12 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpackserver": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
-    "start": "node server/server.js"
+    "start": "nodemon server/server.js"
   },
   "author": "Elham rababah",
   "license": "ISC",
   "dependencies": {
     "2": "^1.0.2",
+    "axios": "^0.17.1",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
@@ -31,5 +32,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
+    "nodemon": "^1.14.12"
   }
 }
