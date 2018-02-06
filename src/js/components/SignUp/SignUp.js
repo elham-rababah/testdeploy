@@ -1,7 +1,10 @@
-import React from "react";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
-import { Link } from 'react-router'
+import React from 'react';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import { Link } from 'react-router';
+import axios from 'axios';
+
+
 
 
 
@@ -24,8 +27,19 @@ export default class SignIn extends React.Component {
     }
 
     addNewUser(event) {
-        console.log("addNewUser",event)
-        alert('Your favorite flavor is: ' +JSON.stringify(event) +JSON.stringify(this.state));
+        axios.post('http://localhost:8000/api/users/addnewuser', {
+            name:this.state.name,
+            password:this.state.password,
+            password2:this.state.password2,
+            email:this.state.email,
+        })
+        .then(function (response) {
+            console.log(response);
+            //take decsion
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
     // TODO: its beter to handel all input filed togother in one function
     handleChangeName(event) {
@@ -43,6 +57,7 @@ export default class SignIn extends React.Component {
     handleChangeEmail(event) {
         this.setState({email: event.target.value});
     }
+     // TODO: Validation on mach password 
 
     render() {
         return (
