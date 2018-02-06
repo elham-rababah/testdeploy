@@ -2,6 +2,11 @@
 var express = require('express');
 var app = express();
 
+var mongoose = require('mongoose');
+var MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/node-test';
+
+mongoose.connect(MONGO_URI);
+
 
 var app = express();
 
