@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 export default class SignIn extends React.Component {
-    constructor() {
+    constructor(props,context) {
         super();
         this.state = {
             name:'',
@@ -27,19 +27,23 @@ export default class SignIn extends React.Component {
     }
 
     addNewUser(event) {
-        axios.post('http://localhost:8000/api/users/addnewuser', {
+        event.preventDefault();
+        axios.post('http://localhost:8000/api/users/addnewuser/', {
             name:this.state.name,
             password:this.state.password,
             password2:this.state.password2,
             email:this.state.email,
         })
         .then(function (response) {
-            console.log(response);
-            //take decsion
+           //send the user to profle 
+           window.location.replace('/');
+
         })
         .catch(function (error) {
-            console.log(error);
+            //TODO better apperance for  Error 
+            alert("this email is alrady exist ,Please use anther email or login");
         });
+     
     }
     // TODO: its beter to handel all input filed togother in one function
     handleChangeName(event) {

@@ -3,6 +3,7 @@ var usersModel = require('./usersModel');
 
 module.exports = {
 	addNewUser : function (req,res) {
+		console.log(req.body);
 		usersModel.findOne({email :req.body.email})
 		.exec(function (err,user){
 			if (user){
@@ -18,6 +19,7 @@ module.exports = {
 					if (err){
 						res.status(500).send({message:err});
 					} else {
+						console.log(user);
 						res.status(200).send(user);
 					}
 				})
