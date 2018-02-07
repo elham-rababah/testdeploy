@@ -7,7 +7,7 @@ module.exports = {
 		usersModel.findOne({email :req.body.email})
 		.exec(function (err,user){
 			if (user){
-				res.status(500).send({message:"user is exist"});
+				res.status(500).send({message:"email is exist"});
 			} else {
 				var newUser = new usersModel({
 					name: req.body.name,
@@ -23,6 +23,27 @@ module.exports = {
 						res.status(200).send(user);
 					}
 				})
+			} 
+		});
+	},
+	logIn : function (req,res) {
+		console.log(req.body);
+		usersModel.findOne({email :req.body.email})
+		.exec(function (err,user){
+			console.log(err,user)
+			//
+			if (user){
+				usersModel.comparePassword(req.body.password,user.password,res,function(isMatch) {
+					if (isMatch){
+						res.status(200).send(user);
+					} else {
+						res.status(500).send({message:"password is wrong"});
+					}
+
+				})
+				
+			} else {
+				res.status(500).send({message:"email is not exist"});
 			} 
 		});
 	}

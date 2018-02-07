@@ -11,6 +11,7 @@ import axios from 'axios';
 export default class SignIn extends React.Component {
     constructor(props,context) {
         super();
+
         this.state = {
             name:'',
             password:'',
@@ -41,8 +42,8 @@ export default class SignIn extends React.Component {
         })
         .catch(function (error) {
             //TODO better apperance for  Error 
-            alert("this email is alrady exist ,Please use anther email or login");
-        });
+        alert(err.response.data.message);        
+    });
      
     }
     // TODO: its beter to handel all input filed togother in one function
