@@ -9,7 +9,7 @@ var userSchema = new Schema ({
     name : { type: String, required: true},
 	password : { type: String, required: true},
     email: { type: String,required: true, index : {unique : true}},
-    Lists: { type : Array},
+    Lists: { type : Array},//TODO :think agian about the benfite of this filed
     salt : { type : String}
 });
 
