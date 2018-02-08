@@ -7,7 +7,6 @@ export default class UserProfile extends React.Component {
 	constructor(props) {
 		super(props);
 		console.log(this.props.params.username)
-		alert (this.props.params);
 		
 	}
 
