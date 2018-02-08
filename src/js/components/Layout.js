@@ -1,27 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from './Header/Header';
+import Footer from './Footer/Footer';
 
 
 export default class Layout extends React.Component {
-  constructor() {
+    constructor() {
     super();
-    this.state = {
-      title: "Welcome",
-    };
-  }
+    }
 
-  changeTitle(title) {
-    this.setState({title});
-  }
-
-  render() {
-    return (
-      <div>
-          <Header/>
-          <Footer/>
-      </div>
-    );
-  }
+    render() {
+        return (
+        <div>
+            <Header/>
+            <Footer/>
+        </div>
+        );
+    }
 }
