@@ -10,7 +10,10 @@ export default class TodoListActions extends React.Component {
     render() {
         return (
             <div>
-                TodoListActions
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href="#">This is a link</a>
+                </div>
             </div>
         );
     }
