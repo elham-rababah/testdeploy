@@ -15,6 +15,6 @@ ReactDOM.render((
 	    <Route path="/" component={Layout}/>
 	    <Route path="/signin" component={SignIn}/>
 	    <Route path="/signup" component={SignUp}/>
-	    <Route path="/profile" component={Profile}/>
+	    <Route path="profile/:username" component={Profile}/>
   	</Router>
   ), app);

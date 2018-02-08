@@ -35,12 +35,12 @@ export default class SignIn extends React.Component {
             password2:this.state.password2,
             email:this.state.email,
         })
-        .then(function (response) {
+        .then(function (res) {
            //send the user to profle 
-           window.location.replace('/');
+           window.location.replace('#/profile/'+ res.data._id);
 
         })
-        .catch(function (error) {
+        .catch(function (err) {
             //TODO better apperance for  Error 
         alert(err.response.data.message);        
     });

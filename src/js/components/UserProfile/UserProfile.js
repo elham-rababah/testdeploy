@@ -4,8 +4,10 @@ import HeaderWithLogin from '../Header/HeaderWithLogin';
 import AllTodoList from './AllTodoList';
 
 export default class UserProfile extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+		console.log(this.props.params.username)
+		alert (this.props.params);
 		
 	}
 

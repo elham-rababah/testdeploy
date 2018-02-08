@@ -37,13 +37,11 @@ export default class SignIn extends React.Component {
             password:this.state.password,
         })
         .then(function (res) {
-            console.log(res)
            //send the user to profle 
-           window.location.replace('/');
+           window.location.replace('#/profile/'+ res.data._id);
 
         })
         .catch(function (err) {
-           alert(JSON.stringify(err.response.data.message))
             //TODO better apperance for  Error 
             alert(err.response.data.message);
         });
