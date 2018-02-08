@@ -16,11 +16,10 @@ module.exports = {
 				    userid: req.body.userid
 				});
 				console.log(newList);
-				newList.markModified();
 				newList.save(function(err,list) {
 					if (list) {
 						res.status(200).send(list);
-					} else{
+					} else {
 						res.status(500).send({message:err});
 					}
 
@@ -30,8 +29,18 @@ module.exports = {
 			}
 
 		})
+	},
+	getAllListForOneUser : function(req,res){
+		console.log(req.params	)
+		ListModel.find({userid:req.params.userid})
+		.exec(function(err,lists){
+			if(lists){
+				res.status(200).send(lists)
+			} else {
+				res.status(500).send({message:err});
+			}
 
-
+		})
 
 	}
 }

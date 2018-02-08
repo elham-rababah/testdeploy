@@ -11,4 +11,5 @@ module.exports = function(app){
 
 	//List Api
 	app.post('/api/list/createlist', listsController.createList);
+	app.get('/api/list/getAllListForOneUser/:userid', listsController.getAllListForOneUser);
 };
