@@ -5,16 +5,14 @@ import AllTodoList from './AllTodoList';
 
 export default class UserProfile extends React.Component {
 	constructor(props) {
-		super(props);
-		console.log(this.props.params.username)
-		
+		super(props);		
 	}
 
 	render() {
 		return (
 			<div>
 			    <HeaderWithLogin/>
-			    <AllTodoList/>
+			    <AllTodoList username = {this.props.params.username} />
 			    <Footer/>
 			</div>
 		);
