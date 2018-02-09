@@ -64,6 +64,23 @@ module.exports = {
 			}
 
 		})
+	},
+	deleteList : function (req,res){
+		console.log(req.params.listid);
+		ListModel.findByIdAndRemove(req.params.listid)
+		.exec(function(err,list){
+			if (list) {
+				//we want want to delete list
+				let response = {
+			        message: "list successfully deleted",
+			        listid: list._id
+			    };
+			    res.status(500).send(response);
+
+			} else {
+				res.status(500).send({message:"we can't load this list any more"});
+			}
+		})
 
 	}
 }

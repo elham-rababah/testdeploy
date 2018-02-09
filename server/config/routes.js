@@ -13,4 +13,5 @@ module.exports = function(app){
 	app.post('/api/list/createlist', listsController.createList);
 	app.get('/api/list/getAllListForOneUser/:userid', listsController.getAllListForOneUser);
 	app.put('/api/list/updatelist/:listid', listsController.updateList);
+	app.delete('/api/list/deleteList/:listid', listsController.deleteList);
 };
