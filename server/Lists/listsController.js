@@ -42,5 +42,28 @@ module.exports = {
 
 		})
 
+	},
+	updateList : function(req,res){
+		ListModel.findById(req.params.listid)
+		.exec(function(err,list){
+			if(list){
+				list.title = req.body.title || list.title;
+		        list.items = req.body.items || list.items;
+		        list.userid = req.body.userid || list.userid;
+		        list.createdDate = req.body.createdDate || list.createdDate;
+		        
+		        list.save(function(err,updatedList){
+		        	if (updatedList) {
+		        		res.status(200).send(updatedList)
+		        	} else {
+		        		res.status(500).send({message:err});
+		        	}
+		        });
+			} else {
+				res.status(500).send({message:"we can't load this list any more"});
+			}
+
+		})
+
 	}
 }
