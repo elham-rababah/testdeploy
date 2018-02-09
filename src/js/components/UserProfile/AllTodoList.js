@@ -11,8 +11,16 @@ export default class AllTodoList extends React.Component {
     render() {
         return (
             <div>
-                AllTodoList
-                <TodoList/>
+                <header>
+                    <h1>My ToDo Lists</h1>
+                </header>
+                <div class="band">
+                    <TodoList/>
+                    <TodoList/>
+                    <TodoList/>
+                    <TodoList/>
+                    <TodoList/>
+                </div>
             </div>
         );
     }

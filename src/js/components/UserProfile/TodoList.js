@@ -11,21 +11,21 @@ export default class TodoList extends React.Component {
 
     render() {
         return (
-            <div>
-                TodoList
-                 <div class="row">
-                    <div class="col s12 m6">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                          <span class="card-title">Card Title</span>
-                          <p>I am a very simple card. I am good at containing small bits of information.
-                          I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                        <TodoListActions/>
-                      </div>
-                    </div>
-                  </div>
+            
+            <div class="">
+                <div class="card">
+                <div class="thumb" style={{background: "green"}}>
+                    <h1>List Title</h1>
+                </div>
+                    <article>
+                    <li>How to Conduct Remote Usability Testing</li>
+                    <li>How to Conduct Remote Usability Testing</li>
+                    <li>Add New Item</li>
+                    <span>Harry Brignull</span>
+                    </article>
+                </div>
             </div>
+           
         );
     }
 }
