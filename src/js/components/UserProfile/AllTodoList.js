@@ -10,27 +10,35 @@ export default class AllTodoList extends React.Component {
         this.state = {
             lists : []
         }
+
+        this.deleteListAction = this.deleteListAction.bind(this);
+
+    }
+
+    deleteListAction (id){
+        var splicearr = this.state.lists.splice(id,1);
+        this.setState({lists:this.state.lists});
     }
 
     componentDidMount(){
         let currentThis  = this;
         axios.get('api/list/getAllListForOneUser/'+this.props.username)
         .then(function (res) {
-            console.log(res);
             currentThis.setState({lists : res.data});
         })
     }
 
     render() {
-        console.log(this.state.lists);
+            var currentThis = this;
         return (
             <div>
                 <header>
                     <h1>My ToDo Lists</h1>
                 </header>
                 <div class="band">
-                    {this.state.lists.map(function(list,i){
-                         return <TodoList list={list} />
+                    {
+                        this.state.lists.map(function(list,i){
+                        return <TodoList list={list} id={i} deleteListAction = {currentThis.deleteListAction}/>
                     })}
                 </div>
             </div>

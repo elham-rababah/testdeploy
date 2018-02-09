@@ -6,30 +6,30 @@ export default class TodoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: this.props.list.title,
-            items: this.props.list.items,
-            createdDate: this.props.list.createdDate ,
-            _id: this.props.list._id,
-            userid: this.props.list.userid,
-
         }
+
+        this.deleteListAction = this.deleteListAction.bind(this);
         
     }
-
+    
+    deleteListAction (id){
+        this.props.deleteListAction(id);
+    } 
 
     render() {
         return (
             <div class="">
                 <div class="card">
                 <div class="thumb" style={{background: "green"}}>
-                    <h1>{this.state.title}</h1>
+                    <h1>{this.props.list.title}</h1>
                 </div>
                     <article>
-                    {this.state.items.map(function(item){
+                    {this.props.list.items.map(function(item){
                         return <li>{item}</li>
                     })}
                     <li>Add New Item</li>
-                    <span>{this.state.createdDate}</span>
+                    <span>{this.props.list.createdDate}</span>
+                    <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction}/>
                     </article>
                 </div>
             </div>

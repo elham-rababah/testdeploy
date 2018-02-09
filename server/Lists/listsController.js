@@ -66,7 +66,6 @@ module.exports = {
 		})
 	},
 	deleteList : function (req,res){
-		console.log(req.params.listid);
 		ListModel.findByIdAndRemove(req.params.listid)
 		.exec(function(err,list){
 			if (list) {
@@ -75,7 +74,7 @@ module.exports = {
 			        message: "list successfully deleted",
 			        listid: list._id
 			    };
-			    res.status(500).send(response);
+			    res.status(200).send(response);
 
 			} else {
 				res.status(500).send({message:"we can't load this list any more"});
