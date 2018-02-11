@@ -10,6 +10,7 @@ export default class TodoList extends React.Component {
 
         this.deleteListAction = this.deleteListAction.bind(this);
         this.updateHeaderAction = this.updateHeaderAction.bind(this);
+        this.updateItemsAction = this.updateItemsAction.bind(this);
         
     }
     
@@ -20,11 +21,20 @@ export default class TodoList extends React.Component {
     updateHeaderAction (event) {
         //console.log("event.target.value",this.props.id);
         this.props.list.title = event.target.value;
-        this.props.updateHeaderAction(this.props.id,this.props.list);
+        this.props.updateListAction(this.props.id,this.props.list);
+    }
+
+    updateItemsAction (id,event) {
+        console.log(event.target.value,id);
+        this.props.list.items.splice(id,1);
+        this.props.list.items.splice(id,0,event.target.value);
+        //this.props.list.title = event.target.value;
+        this.props.updateListAction(this.props.id,this.props.list);
     }
 
     render() {
         //console.log(this.props.list)
+        var currentThis = this;
         return (
             <div class="">
                 <div class="card">
@@ -37,8 +47,8 @@ export default class TodoList extends React.Component {
                         />
           
                     <article>
-                    {this.props.list.items.map(function(item){
-                        return <li>{item}</li>
+                    {this.props.list.items.map(function(item,i){
+                        return <input value={item}  onChange ={(e) => currentThis.updateItemsAction(i, e)}/>
                     })}
                     <li>Add New Item</li>
                     <span>{this.props.list.createdDate}</span>

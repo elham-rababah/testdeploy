@@ -3,13 +3,14 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:8000';
 
 export default class TodoListActions extends React.Component {
-    constructor(probs) {
-        super(probs);
+    constructor(props) {
+        super(props);
         this.state = {
 
         };
 
         this.deleteList = this.deleteList.bind(this);
+        this.updateList = this.updateList.bind(this);
         
     }
 
@@ -25,12 +26,25 @@ export default class TodoListActions extends React.Component {
         });
     }
 
+    updateList (event) {
+        var currentThis = this;
+        axios.put('/api/list/updatelist/'+this.props.list._id,{
+            title:this.props.list.title,
+            items:this.props.list.items,
+        })
+        .then(function (res) {
+             alert("Your List is updated ");
+        })
+        .catch(function (err) {
+            //TODO better apperance for  Error 
+            alert(err);
+        });
+    }
 
     render() {
         return (
             <div class="card-footer">
-                <a class="glyphicon glyphicon-edit"></a>
-                <a class="glyphicon glyphicon-floppy-disk"></a>
+                <a onClick={this.updateList} class="glyphicon glyphicon-floppy-disk"></a>
                 <a onClick={this.deleteList} class="glyphicon glyphicon-trash"></a>
             </div>
         );
