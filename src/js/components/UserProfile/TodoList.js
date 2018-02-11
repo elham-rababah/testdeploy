@@ -23,13 +23,11 @@ export default class TodoList extends React.Component {
     }
 
     updateHeaderAction (event) {
-        //console.log("event.target.value",this.props.id);
         this.props.list.title = event.target.value;
         this.props.updateListAction(this.props.id,this.props.list);
     }
 
     updateItemsAction (id,event) {
-        console.log(event.target.value,id);
         this.props.list.items.splice(id,1);
         this.props.list.items.splice(id,0,event.target.value);
         //this.props.list.title = event.target.value;
@@ -45,14 +43,12 @@ export default class TodoList extends React.Component {
             currentThis.setState({newitem:''});
 
       }else{
-        console.log(event.key);
         currentThis.setState({newitem:currentThis.state.newitem+event.key});
 
       }
     }
 
     render() {
-        //console.log(this.props.list)
         var currentThis = this;
         return (
             <div class="">

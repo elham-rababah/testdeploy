@@ -21,8 +21,6 @@ export default class AddNewTodolist extends React.Component {
     }
 
     updateHeaderAction (event) {
-        console.log(event.target.value);
-        //this.state.list.title = event.target.value;
         this.props.updateNewListAction(event.target.value,'title')
     }
 
@@ -31,9 +29,8 @@ export default class AddNewTodolist extends React.Component {
         event.preventDefault();
         axios.post('/api/list/createlist', this.props.list)
         .then(function (res) {
-           //send the user to profle 
-           //window.location.replace('#/profile/'+ res.data._id);
-           currentThis.props.addListAction(res.data);
+            alert ('New List Add successfully')
+            currentThis.props.addListAction(res.data);
 
         })
         .catch(function (err) {
@@ -50,7 +47,6 @@ export default class AddNewTodolist extends React.Component {
             currentThis.setState({newitem:''});
 
       }else{
-        console.log(event.key);
         currentThis.setState({newitem:currentThis.state.newitem+event.key});
 
       }

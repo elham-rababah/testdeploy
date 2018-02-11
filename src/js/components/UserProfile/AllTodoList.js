@@ -20,6 +20,7 @@ export default class AllTodoList extends React.Component {
         this.deleteListAction = this.deleteListAction.bind(this);
         this.updateListAction = this.updateListAction.bind(this);
         this.updateNewListAction = this.updateNewListAction.bind(this);
+        this.addListAction = this.addListAction.bind(this);
     }
 
     deleteListAction (id){
@@ -35,8 +36,15 @@ export default class AllTodoList extends React.Component {
     }
 
     addListAction(event) {
-        console.log("res.data",event);
-        this.state.lists.unshift(event);
+        var arr = this.state.lists.unshift(event);
+        this.setState({lists:this.state.lists});
+        this.setState({createdDate: '',
+            title :'new list',
+            items : [],
+            userid : this.props.username
+        });
+
+        
     }
 
     updateNewListAction(value,key){

@@ -18,6 +18,7 @@ export default class TodoListActions extends React.Component {
         var currentThis = this;
         axios.delete('/api/list/deletelist/'+this.props.list._id)
         .then(function (res) {
+            alert ('New List Deleted successfully')
             currentThis.props.deleteListAction(currentThis.props.id)
         })
         .catch(function (err) {
