@@ -1,5 +1,7 @@
 import React from 'react';
 import TodoListActions from './TodoListActions';
+import TodoListItems from './TodoListItems';
+import TodoListHeader from './TodoListHeader';
 
 
 export default class TodoList extends React.Component {
@@ -55,21 +57,12 @@ export default class TodoList extends React.Component {
         return (
             <div class="">
                 <div class="card">
-                
-                    <input 
-                        class="thumb card-header"  
-                        value={this.props.list.title} 
-                        style={{background: "green"}}
-                        onChange ={this.updateHeaderAction}
-                        />
+                    <TodoListHeader  list={this.props.list} updateHeaderAction={currentThis.updateHeaderAction}/>
           
                     <article>
-                    {this.props.list.items.map(function(item,i){
-                        return <input value={item}  onChange ={(e) => currentThis.updateItemsAction(i, e)}/>
-                    })}
-                    <input value={this.state.newitem} placeholder="new item"  onKeyPress={this.handleKeyPress}/>
-                    <span>{this.props.list.createdDate}</span>
-                    <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction}/>
+                        <TodoListItems id={this.props.id} list={this.props.list} updateItemsAction={currentThis.updateItemsAction} handleKeyPress ={this.handleKeyPress} newitem={this.state.newitem}/>
+                        <span>{this.props.list.createdDate}</span>
+                        <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction}/>
                     </article>
                 </div>
             </div>
