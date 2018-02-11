@@ -6,11 +6,13 @@ export default class TodoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            newitem:''
         }
 
         this.deleteListAction = this.deleteListAction.bind(this);
         this.updateHeaderAction = this.updateHeaderAction.bind(this);
         this.updateItemsAction = this.updateItemsAction.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
         
     }
     
@@ -32,6 +34,21 @@ export default class TodoList extends React.Component {
         this.props.updateListAction(this.props.id,this.props.list);
     }
 
+    handleKeyPress (event) {
+       var currentThis =this;
+       if (event.key === 'Enter') {
+            event.preventDefault();
+            this.props.list.items.push(currentThis.state.newitem);
+            this.props.updateListAction(this.props.id,this.props.list);
+            currentThis.setState({newitem:''});
+
+      }else{
+        console.log(event.key);
+        currentThis.setState({newitem:currentThis.state.newitem+event.key});
+
+      }
+    }
+
     render() {
         //console.log(this.props.list)
         var currentThis = this;
@@ -50,7 +67,7 @@ export default class TodoList extends React.Component {
                     {this.props.list.items.map(function(item,i){
                         return <input value={item}  onChange ={(e) => currentThis.updateItemsAction(i, e)}/>
                     })}
-                    <li>Add New Item</li>
+                    <input value={this.state.newitem} placeholder="new item"  onKeyPress={this.handleKeyPress}/>
                     <span>{this.props.list.createdDate}</span>
                     <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction}/>
                     </article>
