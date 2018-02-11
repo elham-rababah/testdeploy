@@ -12,11 +12,19 @@ export default class AllTodoList extends React.Component {
         }
 
         this.deleteListAction = this.deleteListAction.bind(this);
+        this.updateHeaderAction = this.updateHeaderAction.bind(this);
 
     }
 
     deleteListAction (id){
-        var splicearr = this.state.lists.splice(id,1);
+        
+        this.state.lists.splice(id,1);
+        this.setState({lists:this.state.lists});
+    }
+
+    updateHeaderAction(id,list){
+        this.state.lists.splice(id,1);
+        this.state.lists.splice(id,0,list);
         this.setState({lists:this.state.lists});
     }
 
@@ -38,7 +46,7 @@ export default class AllTodoList extends React.Component {
                 <div class="band">
                     {
                         this.state.lists.map(function(list,i){
-                        return <TodoList list={list} id={i} deleteListAction = {currentThis.deleteListAction}/>
+                        return <TodoList list={list} id={i} updateHeaderAction={currentThis.updateHeaderAction} deleteListAction = {currentThis.deleteListAction}/>
                     })}
                 </div>
             </div>
