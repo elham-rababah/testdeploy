@@ -214,3 +214,7 @@ header {
 .navbar-default {
     background-color: #3CC;
 }
+
+.itemInput{
+  margin-bottom: 10px;
+}

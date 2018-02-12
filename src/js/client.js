@@ -10,7 +10,7 @@ import Profile from "./components/UserProfile/UserProfile";
 
 const isLogin =function (){
 	if(!sessionStorage.getItem('userInfo')){
-		window.location.replace('#/');
+		window.location.replace('#/signin');
 	}
 }
 const app = document.getElementById('app');
