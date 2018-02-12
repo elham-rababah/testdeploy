@@ -29,23 +29,37 @@ export default class SignIn extends React.Component {
 
     addNewUser(event) {
         event.preventDefault();
-        axios.post('http://localhost:8000/api/users/addnewuser/', {
-            name:this.state.name,
-            password:this.state.password,
-            password2:this.state.password2,
-            email:this.state.email,
-        })
-        .then(function (res) {
-           //send the user to profle 
-           window.location.replace('#/profile/'+ res.data._id);
+        if (this.isPasswordMatch(this.state.password,this.state.password2)){
+            axios.post('http://localhost:8000/api/users/addnewuser/', {
+                name:this.state.name,
+                password:this.state.password,
+                password2:this.state.password2,
+                email:this.state.email,
+            })
+            .then(function (res) {
+               //send the user to profle 
+               window.location.replace('#/profile/'+ res.data._id);
 
-        })
-        .catch(function (err) {
-            //TODO better apperance for  Error 
-        alert(err.response.data.message);        
-    });
+            })
+            .catch(function (err) {
+                //TODO better apperance for  Error 
+                alert(err.response.data.message);        
+            });
+        }else {
+            alert("Passwords Don't Match");
+        }
      
     }
+
+    isPasswordMatch(pass,confirmPass){
+        if(pass === confirmPass){
+            return true ;
+        } else {
+            return false;
+        }
+
+    }
+
     // TODO: its beter to handel all input filed togother in one function
     handleChangeName(event) {
         this.setState({name: event.target.value});
@@ -61,8 +75,7 @@ export default class SignIn extends React.Component {
 
     handleChangeEmail(event) {
         this.setState({email: event.target.value});
-    }
-     // TODO: Validation on mach password 
+    } 
 
     render() {
         return (
