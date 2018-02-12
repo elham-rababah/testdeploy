@@ -27,6 +27,11 @@ export default class AddNewTodolist extends React.Component {
     AddList (event) {
         var currentThis = this ;
         event.preventDefault();
+        if (currentThis.state.newitem != ''){
+            currentThis.props.list.items.push(currentThis.state.newitem);
+            currentThis.setState({newitem:''});
+        }
+
         axios.post('/api/list/createlist', this.props.list)
         .then(function (res) {
             alert ('New List Add successfully')
