@@ -115,7 +115,7 @@ header {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 20px;
-  margin-bottom:50px;
+  margin-bottom:65px;
 }
 @media (min-width: 30em) {
   .band {
@@ -195,11 +195,12 @@ header {
 
 .card-header {
   padding: 15px;
-  flex: 1;
-  display: flex;
+  
   flex-direction: column;
   justify-content: space-between;
   font-size: 20px;
+  color:#3CC;
+  background: #4d1300
 }
 
 @media (min-width: 60em) {
@@ -212,9 +213,14 @@ header {
 }
 
 .navbar-default {
-    background-color: #3CC;
+  background-color: #3CC;
 }
 
-.itemInput{
+.itemInput {
   margin-bottom: 10px;
+}
+
+.actionbutton {
+  color: #3CC ;
+  font-size: 30px;
 }

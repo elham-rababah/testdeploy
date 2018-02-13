@@ -65,7 +65,9 @@ export default class AddNewTodolist extends React.Component {
                     <TodoListHeader  list={this.props.list} updateHeaderAction={currentThis.updateHeaderAction}/>
                     <article>
                         <TodoListItems id={this.state.id} list={this.props.list} updateItemsAction={currentThis.updateItemsAction} handleKeyPress ={this.handleKeyPress} newitem={this.state.newitem}/>
-                        <div class="card-footer" onClick={this.AddList}> Add New List</div>
+                        <span>{this.props.list.createdDate}</span>
+                        <div ><a title ="Add New List" onClick={this.AddList} class="glyphicon glyphicon-plus actionbutton"></a>
+                        </div>
                     </article>
                 </div>
             </div>

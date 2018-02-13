@@ -11,7 +11,7 @@ export default class AllTodoList extends React.Component {
         this.state = {
             lists : [],
             createdDate: '',
-            title :'new list',
+            title :'New List',
             items : [],
             userid : this.props.username,
            

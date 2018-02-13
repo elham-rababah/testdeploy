@@ -14,10 +14,9 @@ export default class TodoList extends React.Component {
         var currentThis = this;
         return (
                 
-            <input 
+            <textarea 
                 class="thumb card-header"  
                 value={this.props.list.title} 
-                style={{background: "green"}}
                 onChange ={this.props.updateHeaderAction}
                 />
         );

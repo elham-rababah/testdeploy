@@ -52,9 +52,9 @@ export default class TodoListActions extends React.Component {
 
     render() {
         return (
-            <div class="card-footer">
-                <a onClick={this.updateList} class="glyphicon glyphicon-floppy-disk"></a>
-                <a onClick={this.deleteList} class="glyphicon glyphicon-trash"></a>
+            <div>
+                <a title ="Update List" onClick={this.updateList} class="glyphicon glyphicon-floppy-disk actionbutton"></a>
+                <a title ="Delete List" onClick={this.deleteList} class="glyphicon glyphicon-trash actionbutton"></a>
             </div>
         );
     }
