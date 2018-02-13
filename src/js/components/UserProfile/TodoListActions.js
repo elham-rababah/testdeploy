@@ -8,9 +8,11 @@ export default class TodoListActions extends React.Component {
         this.state = {
 
         };
+        console.log(this.props)
 
         this.deleteList = this.deleteList.bind(this);
         this.updateList = this.updateList.bind(this);
+        this.completeList = this.completeList.bind(this);
         
     }
 
@@ -42,7 +44,23 @@ export default class TodoListActions extends React.Component {
             items:this.props.list.items,
         })
         .then(function (res) {
-             alert("Your List is updated ");
+            alert("Your List is updated ");
+        })
+        .catch(function (err) {
+            //TODO better apperance for  Error 
+            alert(err);
+        });
+    }
+
+    completeList (event) {
+        var currentThis = this;
+        axios.put('/api/list/updatelist/'+this.props.list._id,{
+            status:'completed',
+        })
+        .then(function (res) {
+            alert("Your List is Completed ");
+            currentThis.props.updateListAction(currentThis.props.id,res.data)
+
         })
         .catch(function (err) {
             //TODO better apperance for  Error 
@@ -54,7 +72,11 @@ export default class TodoListActions extends React.Component {
         return (
             <div>
                 <a title ="Update List" onClick={this.updateList} class="glyphicon glyphicon-floppy-disk actionbutton"></a>
-                <a title ="Delete List" onClick={this.deleteList} class="glyphicon glyphicon-trash actionbutton"></a>
+                <a title ="Delete List" onClick={this.deleteList} class="glyphicon glyphicon-trash actionbutton"></a> 
+                
+                {this.props.list.status=='open' ? <a title ="Complete List" onClick={this.completeList} class="glyphicon glyphicon-ban-circle actionbutton"></a>:
+                <a title ="Completed List" class="glyphicon glyphicon-ok actionbutton"></a>}
+  
             </div>
         );
     }

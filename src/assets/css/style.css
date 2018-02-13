@@ -195,7 +195,6 @@ header {
 
 .card-header {
   padding: 15px;
-  
   flex-direction: column;
   justify-content: space-between;
   font-size: 20px;

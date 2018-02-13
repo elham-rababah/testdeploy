@@ -60,7 +60,7 @@ export default class TodoList extends React.Component {
                     <article>
                         <TodoListItems id={this.props.id} list={this.props.list} updateItemsAction={currentThis.updateItemsAction} handleKeyPress ={this.handleKeyPress} newitem={this.state.newitem}/>
                         <span>{this.props.list.createdDate}</span>
-                        <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction} newitem={this.state.newitem} updateItemsAction={currentThis.updateItemsAction}/>
+                        <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction} newitem={this.state.newitem} updateItemsAction={currentThis.updateItemsAction} updateListAction={currentThis.props.updateListAction}/>
                     </article>
                 </div>
             </div>

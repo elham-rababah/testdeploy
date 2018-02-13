@@ -15,7 +15,7 @@ module.exports = {
 				    items: req.body.items,
 				    userid: req.body.userid
 				});
-				console.log(newList);
+				
 				newList.save(function(err,list) {
 					if (list) {
 						res.status(200).send(list);
@@ -51,6 +51,7 @@ module.exports = {
 		        list.items = req.body.items || list.items;
 		        list.userid = req.body.userid || list.userid;
 		        list.createdDate = req.body.createdDate || list.createdDate;
+		        list.status = req.body.status || list.status;
 		        
 		        list.save(function(err,updatedList){
 		        	if (updatedList) {

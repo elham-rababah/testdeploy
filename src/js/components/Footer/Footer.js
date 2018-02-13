@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
         <nav class="navbar navbar-default white footer">
           <div class="container-fluid">
             
-              Elham@2018
+              ©ElhamRababh
           </div>
         </nav>
       </div>

@@ -39,7 +39,7 @@ export default class AllTodoList extends React.Component {
         var arr = this.state.lists.unshift(event);
         this.setState({lists:this.state.lists});
         this.setState({createdDate: '',
-            title :'new list',
+            title :'New List',
             items : [],
             userid : this.props.username
         });
