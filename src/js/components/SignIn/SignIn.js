@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { Link } from 'react-router';
 import axios from 'axios';
+axios.defaults.baseURL = 'http://awesomekeeplist.herokuapp.com';
 
 
 
@@ -32,7 +33,7 @@ export default class SignIn extends React.Component {
     logIn(event) {
 
         event.preventDefault();
-        axios.post('http://localhost:8000/api/users/login/', {
+        axios.post('/api/users/login/', {
             email:this.state.name,
             password:this.state.password,
         })

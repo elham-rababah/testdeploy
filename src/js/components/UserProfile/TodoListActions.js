@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'http://awesomekeeplist.herokuapp.com';
 
 export default class TodoListActions extends React.Component {
     constructor(props) {

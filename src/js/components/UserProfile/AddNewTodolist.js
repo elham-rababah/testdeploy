@@ -3,7 +3,7 @@ import TodoListActions from './TodoListActions';
 import TodoListItems from './TodoListItems';
 import TodoListHeader from './TodoListHeader';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'http://awesomekeeplist.herokuapp.com';
 
 
 export default class AddNewTodolist extends React.Component {
