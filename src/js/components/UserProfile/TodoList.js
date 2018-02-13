@@ -31,8 +31,10 @@ export default class TodoList extends React.Component {
         this.props.list.items.splice(id,1);
         this.props.list.items.splice(id,0,event.target.value);
         //this.props.list.title = event.target.value;
+        this.setState({newitem:''});
         this.props.updateListAction(this.props.id,this.props.list);
     }
+
 
     handleKeyPress (event) {
        var currentThis =this;
@@ -58,7 +60,7 @@ export default class TodoList extends React.Component {
                     <article>
                         <TodoListItems id={this.props.id} list={this.props.list} updateItemsAction={currentThis.updateItemsAction} handleKeyPress ={this.handleKeyPress} newitem={this.state.newitem}/>
                         <span>{this.props.list.createdDate}</span>
-                        <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction}/>
+                        <TodoListActions id={this.props.id} list={this.props.list} deleteListAction={this.deleteListAction} newitem={this.state.newitem} updateItemsAction={currentThis.updateItemsAction}/>
                     </article>
                 </div>
             </div>

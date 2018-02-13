@@ -29,6 +29,14 @@ export default class TodoListActions extends React.Component {
 
     updateList (event) {
         var currentThis = this;
+        if (currentThis.props.newitem != ''){
+            currentThis.props.updateItemsAction(currentThis.props.list.items.length,{target: {
+                value:currentThis.props.newitem
+            }})
+
+           
+        }
+
         axios.put('/api/list/updatelist/'+this.props.list._id,{
             title:this.props.list.title,
             items:this.props.list.items,
