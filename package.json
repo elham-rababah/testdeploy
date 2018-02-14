@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpackserver": "NODE_ENV=production ./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
-    "start": "nodemon server/server.js"
+    "prod": "NODE_ENV=production node server.js",
+    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot"
   },
   "author": "Elham rababah",
   "license": "ISC",
