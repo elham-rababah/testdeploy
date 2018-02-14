@@ -1,1 +1,1 @@
-web: npm run webpackserver
+web: node server.js NODE_ENV=production
