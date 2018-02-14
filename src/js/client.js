@@ -10,10 +10,10 @@ import Profile from "./components/UserProfile/UserProfile";
 
 const isLogin =function (){
 	
-	if(!sessionStorage.getItem('userInfo')){
+	if(!localStorage.getItem('userInfo')){
 		window.location.replace('#/signin');
 	} else {
-		var userInfo =JSON.parse(sessionStorage.getItem('userInfo'));
+		var userInfo =JSON.parse(localStorage.getItem('userInfo'));
 		window.location.replace('#/profile/'+ userInfo._id);
 	}
 }

@@ -10,7 +10,7 @@ export default class HeaderWithLogin extends React.Component {
   }
 
   logout(event) {
-      sessionStorage.removeItem('userInfo');
+      localStorage.removeItem('userInfo');
   }
 
   render() {
