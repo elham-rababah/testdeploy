@@ -9,16 +9,20 @@ import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/UserProfile/UserProfile";
 
 const isLogin =function (){
+	
 	if(!sessionStorage.getItem('userInfo')){
 		window.location.replace('#/signin');
+	} else {
+		var userInfo =JSON.parse(sessionStorage.getItem('userInfo'));
+		window.location.replace('#/profile/'+ userInfo._id);
 	}
 }
 const app = document.getElementById('app');
 ReactDOM.render((
 	<Router history={hashHistory}>
-	    <Route path="/" component={Layout}/>
-	    <Route path="/signin" component={SignIn}/>
-	    <Route path="/signup" component={SignUp}/>
+	    <Route path="/" component={Layout} onEnter={isLogin}/>
+	    <Route path="/signin" component={SignIn} onEnter={isLogin} />
+	    <Route path="/signup" component={SignUp} onEnter={isLogin} />
 	    <Route path="profile/:username" component={Profile} onEnter={isLogin}/>
   	</Router>
   ), app);
