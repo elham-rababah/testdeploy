@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prod": "NODE_ENV=production node server.js",
-    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot"
+    "start": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "author": "Elham rababah",
   "license": "ISC",
