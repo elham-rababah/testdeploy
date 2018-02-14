@@ -11,7 +11,7 @@ import Profile from "./components/UserProfile/UserProfile";
 const isLogin =function (){
 	
 	if(!localStorage.getItem('userInfo')){
-		window.location.replace('#/signin');
+		window.location.replace('#/'+window.location.href.split('/')[4]);
 	} else {
 		var userInfo =JSON.parse(localStorage.getItem('userInfo'));
 		window.location.replace('#/profile/'+ userInfo._id);
